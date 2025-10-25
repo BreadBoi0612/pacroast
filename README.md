@@ -1,12 +1,20 @@
-# PacRoast v0.8
+# PacRoast v1.0!!!!!!
 
-PacRoast is a humorous wrapper for `pacman` on Arch Linux that prints sarcastic roast messages depending on what you’re doing.
+PacRoast is a humorous wrapper for `pacman` on Arch Linux that roasts you for whatever you're doing — installing, updating, removing, syncing, or even asking for help.
 
 ## 🧠 How it works
-- `-Syu`: Update roast (“Skipped updates again? Bold move, buddy.”)
-- `-S` + other flags: Install roasts (“Installing {}… wow, really living on the edge.”)
-- `-R`: Removal roasts (“Farewell, {}. You won’t be missed.”)
-- Everything else: Random general roasts
+- `-Syu` → *System update roast*
+- `-Syu <pkg>` → *App update roast*
+- `-S` → *Install roast*
+- `-R` → *Remove roast*
+- `-Q` → *Query roast*
+- `-Si`, `-Ss` → *Search roast*
+- `-F` → *File lookup roast*
+- `-D` → *Database roast*
+- `-Sc`, `-Scc` → *Cleanup roast*
+- `-Sy` → *Repo sync roast*
+- `-h` → *Help roast*
+- Everything else → *General roast*
 
 ## ⚙️ Installation
 ```bash
