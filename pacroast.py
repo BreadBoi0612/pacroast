@@ -81,52 +81,44 @@ GENERAL_ROASTS = [
 def pick_roast(args, pkg=None):
     joined = " ".join(args)
 
-    # Help roast
+    # --- Specific > General order ---
     if "-h" in args or "--help" in args:
         return random.choice(HELP_ROASTS)
 
-    # Update system or apps
-    if "-Syu" in joined:
-        if any(not a.startswith('-') for a in args):  # e.g. -Syu <pkg>
+    if any(flag in joined for flag in ["-Syu", "--sync --refresh --sysupgrade"]):
+        if any(not a.startswith('-') for a in args):
             pkg = next((a for a in args if not a.startswith('-')), None)
             return random.choice(UPDATE_APPS_ROASTS).format(pkg or "something")
         return UPDATE_SYSTEM_ROAST
 
-    # Install
-    elif "-S" in joined and not "-Syu" in joined:
-        return random.choice(INSTALL_ROASTS).format(pkg or "")
+    if any(flag in joined for flag in ["-Si", "-Ss", "--info", "--search"]):
+        pkg = next((a for a in args if not a.startswith('-')), "something")
+        return random.choice(SEARCH_ROASTS).format(pkg)
 
-    # Remove
-    elif "-R" in joined:
-        return random.choice(REMOVE_ROASTS).format(pkg or "")
-
-    # Query
-    elif "-Q" in joined:
-        return random.choice(QUERY_ROASTS)
-
-    # Search
-    elif "-Ss" in joined or "-Si" in joined:
-        return random.choice(SEARCH_ROASTS).format(pkg or "something")
-
-    # File
-    elif "-F" in joined:
-        return random.choice(FILES_ROASTS)
-
-    # Database
-    elif "-D" in joined:
-        return random.choice(DATABASE_ROASTS)
-
-    # Cleanup
-    elif "-Sc" in joined or "-Scc" in joined:
+    if any(flag in joined for flag in ["-Sc", "-Scc", "--clean"]):
         return random.choice(CLEANUP_ROASTS)
 
-    # Sync
-    elif "-Sy" in joined and not "-Syu" in joined:
+    if any(flag in joined for flag in ["-Sy", "--refresh"]) and "-Syu" not in joined:
         return random.choice(SYNC_ROASTS)
 
-    # Fallback
-    else:
-        return random.choice(GENERAL_ROASTS).format(pkg or "")
+    if "-F" in joined or "--files" in joined:
+        return random.choice(FILES_ROASTS)
+
+    if "-D" in joined or "--database" in joined:
+        return random.choice(DATABASE_ROASTS)
+
+    if "-R" in joined or "--remove" in joined:
+        pkg = next((a for a in args if not a.startswith('-')), "something")
+        return random.choice(REMOVE_ROASTS).format(pkg)
+
+    if "-Q" in joined or "--query" in joined:
+        return random.choice(QUERY_ROASTS)
+
+    if "-S" in joined or "--sync" in joined:
+        pkg = next((a for a in args if not a.startswith('-')), "something")
+        return random.choice(INSTALL_ROASTS).format(pkg)
+
+    return random.choice(GENERAL_ROASTS)
 
 
 def main():
@@ -135,7 +127,7 @@ def main():
         sys.exit(1)
 
     args = sys.argv[1:]
-    pkgs = [arg for arg in args if not arg.startswith('-')]
+    pkgs = [a for a in args if not a.startswith('-')]
 
     # Print roast(s)
     if pkgs:
