@@ -18,11 +18,14 @@ PacRoast is a humorous wrapper for `pacman` on Arch Linux that roasts you for wh
 
 ## ⚙️ Installation
 ```bash
-git clone https://github.com/YOUR_USERNAME/pacroast.git
+git clone https://github.com/BreadBoi0612/pacroast.git
 cd pacroast
 chmod +x pacroast.py
 sudo mv pacroast.py /usr/local/bin/pacroast
 ```
+## OR
+DM me on discord and I'll send you the files directly
+
 ## Test Commands
 ```
 pacroast -Syu                # System update roast
