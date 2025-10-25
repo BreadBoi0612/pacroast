@@ -1,4 +1,4 @@
-# PacRoast 😎
+# PacRoast 0.8
 
 PacRoast is a humorous wrapper for `pacman` on Arch Linux that prints sarcastic roast messages depending on what you’re doing.
 
