@@ -1,4 +1,4 @@
-# PacRoast v1.0!!!!!!
+# PacRoast v1.1!!!!!!
 
 PacRoast is a humorous wrapper for `pacman` on Arch Linux that roasts you for whatever you're doing — installing, updating, removing, syncing, or even asking for help.
 
