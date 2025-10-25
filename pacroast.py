@@ -3,22 +3,40 @@ import sys
 import subprocess
 import random
 
-ROASTS = [
-    "Skipped updates again? Bold move, buddy.",
+# Roast pools by category
+GENERAL_ROASTS = [
     "Your system is older than your last haircut.",
-    "Installing {}… wow, really living on the edge.",
-    "Really installing {}? Epic choice.",
     "Your RAM says hi.",
     "Warning: package may judge your life choices.",
     "You’ve run pacman more than you’ve run in a week.",
     "Your system is a museum exhibit."
 ]
 
-def pick_roast(pkg=None):
-    roast = random.choice(ROASTS)
-    if '{}' in roast and pkg:
-        return roast.format(pkg)
-    return roast
+INSTALL_ROASTS = [
+    "Installing {}… wow, really living on the edge.",
+    "Really installing {}? Epic choice."
+]
+
+UPDATE_ROAST = "Skipped updates again? Bold move, buddy."
+
+REMOVE_ROASTS = [
+    "Farewell, {}. You won’t be missed.",
+    "Deleting {}? Brutal.",
+    "Uninstalling {} — as you should."
+]
+
+def pick_roast(args, pkg=None):
+    joined = " ".join(args)
+
+    if "-Syu" in joined:
+        return UPDATE_ROAST
+    elif "-S" in joined and not "-Syu" in joined:
+        return random.choice(INSTALL_ROASTS).format(pkg or "")
+    elif "-R" in joined:
+        return random.choice(REMOVE_ROASTS).format(pkg or "")
+    else:
+        roast = random.choice(GENERAL_ROASTS)
+        return roast.format(pkg or "")
 
 def main():
     if len(sys.argv) < 2:
@@ -28,13 +46,20 @@ def main():
     args = sys.argv[1:]
     pkgs = [arg for arg in args if not arg.startswith('-')]
 
-    for pkg in pkgs:
-        print(pick_roast(pkg))
+    # Context-aware roast printing
+    if "-Syu" in args:
+        print(pick_roast(args))
+    elif pkgs:
+        for pkg in pkgs:
+            print(pick_roast(args, pkg))
+    else:
+        print(pick_roast(args))
 
+    # Run the actual pacman command
     try:
-        subprocess.run(['sudo', 'pacman'] + args)
+        subprocess.run(["sudo", "pacman"] + args)
     except KeyboardInterrupt:
         print("Operation cancelled by user.")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
