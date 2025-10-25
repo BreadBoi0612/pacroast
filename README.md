@@ -1,25 +1,16 @@
 # PacRoast 😎
 
-PacRoast is a humorous wrapper for `pacman` on Arch Linux that prints random roast messages while running your package commands.
+PacRoast is a humorous wrapper for `pacman` on Arch Linux that prints sarcastic roast messages depending on what you’re doing.
 
-## Features
-- Works with **all pacman commands and flags**
-- Prints random roast messages
-- Lightweight, no dependencies
+## 🧠 How it works
+- `-Syu`: Update roast (“Skipped updates again? Bold move, buddy.”)
+- `-S` + other flags: Install roasts (“Installing {}… wow, really living on the edge.”)
+- `-R`: Removal roasts (“Farewell, {}. You won’t be missed.”)
+- Everything else: Random general roasts
 
-## Installation
+## ⚙️ Installation
 ```bash
-git clone https://github.com/Thornix0612/pacroast.git
+git clone https://github.com/YOUR_USERNAME/pacroast.git
 cd pacroast
 chmod +x pacroast.py
 sudo mv pacroast.py /usr/local/bin/pacroast
-```
-Then run:
-```bash
-pacroast -Syu
-pacroast -S ripgrep (for testing)
-pacroast -Rcs old-package
-```
-
-## Customization
-Edit `roasts.txt` to add or change your roast messages.
