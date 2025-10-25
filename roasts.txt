@@ -1,8 +1,26 @@
-Skipped updates again? Bold move, buddy.
+
+---
+
+### 🗒️ **roasts.txt**
+```text
+# Default roast ideas for customization
+# (Not used yet, but future versions may load from here)
+
+[general]
 Your system is older than your last haircut.
-Installing {}… wow, really living on the edge.
-Really installing {}? Epic choice.
 Your RAM says hi.
 Warning: package may judge your life choices.
 You’ve run pacman more than you’ve run in a week.
 Your system is a museum exhibit.
+
+[install]
+Installing {}… wow, really living on the edge.
+Really installing {}? Epic choice.
+
+[update]
+Skipped updates again? Bold move, buddy.
+
+[remove]
+Farewell, {}. You won’t be missed.
+Deleting {}? Brutal.
+Uninstalling {} — as you should.
