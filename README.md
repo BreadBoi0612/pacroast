@@ -22,3 +22,18 @@ git clone https://github.com/YOUR_USERNAME/pacroast.git
 cd pacroast
 chmod +x pacroast.py
 sudo mv pacroast.py /usr/local/bin/pacroast
+```
+## Test Commands
+```
+pacroast -Syu                # System update roast
+pacroast -Syu lolcat         # App update roast
+pacroast -S ripgrep          # Install roast
+pacroast -Rcs ripgrep        # Remove roast
+pacroast -Qe                 # Query roast
+pacroast -Si neovim          # Search/info roast
+pacroast -F .bashrc          # File lookup roast
+pacroast -D something        # Database roast
+pacroast -Sc                 # Cleanup roast
+pacroast -Sy                 # Repo sync roast
+pacroast -h                  # Help roast
+pacroast                     # Default/general roast
