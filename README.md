@@ -23,8 +23,8 @@ cd pacroast
 chmod +x pacroast.py
 sudo mv pacroast.py /usr/local/bin/pacroast
 ```
-## OR
-DM me on discord and I'll send you the files directly
+# OR
+DM me on discord and I'll send you the files directly (@BreadBoi0612)
 
 ## Test Commands
 ```
