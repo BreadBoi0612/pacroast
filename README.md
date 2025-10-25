@@ -9,7 +9,7 @@ PacRoast is a humorous wrapper for `pacman` on Arch Linux that prints random roa
 
 ## Installation
 ```bash
-git clone https://github.com/YOUR_USERNAME/pacroast.git
+git clone https://github.com/Thornix0612/pacroast.git
 cd pacroast
 chmod +x pacroast.py
 sudo mv pacroast.py /usr/local/bin/pacroast
