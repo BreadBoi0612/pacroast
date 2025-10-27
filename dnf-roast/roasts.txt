@@ -1,0 +1,40 @@
+[general]
+Your system is older than your last haircut.
+Your RAM says hi.
+Warning: package may judge your life choices.
+You’ve run dnf more than you’ve run in a week.
+Your Fedora workstation looks like Atomic Workstation… atomic-level chaos.
+
+[install]
+Installing {} with dnf… living dangerously!
+Really installing {}? Hope you know what you’re doing.
+{} is about to grace your system — good luck.
+{} will join your Atomic Workstation collection. Don’t blow anything up.
+
+[update]
+Skipped updates again? Fedora won’t judge… much.
+Updating your system… living on the edge!
+Time to refresh your packages… careful now.
+Your Atomic Workstation remains at risk, but at least stylishly outdated.
+
+[remove]
+Farewell, {}. You won’t be missed.
+Removing {}? Bold choice.
+{} leaves the system — and maybe your dignity too.
+{} is gone… like your free time after a dnf upgrade.
+
+[query]
+Querying {}? Fedora detective mode activated.
+Checking installed packages… curiosity kills the cat.
+{}? Investigating your own mess, are we?
+
+[search]
+Searching for {}… really need it?
+Looking up {}? Fedora keeps secrets.
+{}? That’s what you’re looking for? Brave.
+
+[clean]
+Cleaning cache… minimalism looks good on you.
+Running dnf clean all — hope you really need it.
+Cache cleared. Your disk thanks you, your ego… maybe not.
+Atomic Workstation cache cleared — nothing exploded. Yet.
